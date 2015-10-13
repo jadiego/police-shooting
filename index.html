@@ -6,7 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Police Shootings</title>
-      
+        
+        <meta name="author" content="John Diego">
+        <meta name="description" content="Data map of police shootings.">
+        
         <!-- jQuery, Bootstrap -->
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -15,23 +18,23 @@
         <!-- leaflet libraries -->
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-
+        
         <!-- Custom files -->
         <script type="text/javascript" src="js/map.js"></script>
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     
     <body>
-        <!-- title and additional information here -->
-        <h1>Police Shootings</h1>
-        <div class="container">
-            <!-- This is the div that your map will go in.  You'll need to reference its id -->
-            <div id="mapSpace">
-                
-            </div>
+        
+        <h1 class="text-center">Police Shootings</h1>
+        
+        <div class="container-fluid">
+            <div id="map"></div>
         </div>
+        
         <script>
             drawMap()
         </script>
+        
     </body>
 </html>
