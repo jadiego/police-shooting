@@ -1,7 +1,17 @@
 #map { 
     height: 750px;
+    border-style: solid;
+    border-width: thin;
 }
 
 .container-fluid{
     padding: 50px;
+}
+
+#hit {
+    color: grey;
+}
+
+#killed {
+    color: red;
 }
