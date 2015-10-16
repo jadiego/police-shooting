@@ -20,20 +20,39 @@ var getData = function() {
 }
 
 var layers = {};
+var blackhit = 0,
+    blackkilled = 0,
+    whitehit = 0,
+    whitekilled = 0;
 // Loops through data and adds the appropriate layers and points
 var customBuild = function() {
     for(var i = 0; i < data.length; i++) {
-        //Creates circle with popup
-        var circle = L.circle([data[i].lat, data[i].lng], 20000, {
-            color: (data[i]["Hit or Killed?"] === "Killed") ? "red" : "gray",
-            fillOpacity: 0.3
-        }).bindPopup(data[i].Summary + "Source".link(data[i]["Source Link"]));
-        // If data doesn't have "Race" key, then changes it to Unknown;
+         
+        //Create popup
+        var popup = L.popup()
+            .setLatLng([data[i].lat, data[i].lng])
+            .setContent(data[i]["Victim's Age"] + " year old " + data[i]["Victim Name"] + " was " + data[i]["Hit or Killed?"] + " by " + data[i]["Agency Name"] + "<br/><br/>" + data[i].Summary + "(Source)".link(data[i]["Source Link"]));
+        
+        //Create circle
+        var circle = L.circle([data[i].lat, data[i].lng], 30100, {
+            color: (data[i]["Hit or Killed?"] === "Killed") ? "#4B5455" : "#396A6F",
+            opacity: 0.5,
+            weight: 0
+        }).bindPopup(popup);
+        
+        // Applies to overlay layer depending on race
         var personRace = ("Race" in data[i]) ? data[i].Race : "Unknown";
         if (layers.hasOwnProperty(personRace)) {
             layers[personRace].addLayer(circle);
         } else {
             layers[personRace] = L.layerGroup([circle]);   
+        }
+        
+        //Adds to counters for table
+        if (personRace == "Black or African American") {
+            (data[i]["Hit or Killed?"]  === "Killed") ? blackkilled++ : blackhit++;
+        } else if (personRace == "White") {
+            (data[i]["Hit or Killed?"]  === "Killed") ? whitekilled++ : whitehit++;
         }
     }
     $.each(layers, function(key, value) {
@@ -43,4 +62,13 @@ var customBuild = function() {
     
     });
     L.control.layers(null,layers).addTo(map);
+    $("#blackhit").text(blackhit);
+    $("#blackkilled").text(blackkilled);
+    $("#whitehit").text(whitehit);
+    $("#whitekilled").text(whitekilled);
+    
+    //percentages
+    
+    $("#percent1").text(Math.ceil(blackkilled / (blackhit + blackkilled) * 100)  + "%");
+    $("#percent2").text(Math.ceil(whitekilled / (whitehit + whitekilled) * 100)  + "%");
 }

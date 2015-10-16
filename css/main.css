@@ -1,17 +1,47 @@
-#map { 
-    height: 750px;
-    border-style: solid;
-    border-width: thin;
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Hind+Vadodara:300);
+@import url(https://fonts.googleapis.com/css?family=Stint+Ultra+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Wire+One);
+
+body {
+    font-family: "Hind Vadodara";
+    font-size: 16px;
 }
 
-.container-fluid{
-    padding: 50px;
+h1 {
+    font-family: Oswald;
+    font-size: 65px;
+}
+
+p {
+    color: darkgray;
+    padding-bottom: 50px;
+}
+
+b {
+    font-size: 18px;
+}
+
+#map { 
+    height: 760px;
+    padding: 0px;
+    border-top-style: solid;   
+}
+
+#category {
+    font-size: 20px;
+    font-family: "Stint Ultra Condensed";
 }
 
 #hit {
-    color: grey;
+    color: #396A6F;
 }
 
 #killed {
-    color: red;
+    color: #4B5455;
+}
+
+#percent1, #percent2 {
+    font-size: 90px;
+    font-family: "Wire One";
 }

@@ -26,12 +26,39 @@
     
     <body>
         
-
-        <h1 class="text-center">Police Shootings</h1>
-
+        <div id="header" class="container-fluid">
+            <h1 class="text-center">U.S. POLICE SHOOTINGS</h1>
+            <p class="text-center">This map shows crowdsourced police shooting data from <a target="_blank" href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">deadspin</a>. Circle color indicates if the victim was <b id="hit">HIT</b> or <b id="killed">KILLED</b>. Click each point for details.</p>
+        </div>
         
-        <div class="container-fluid">
-            <p class="text-center">This map shows crowdsourced police shooting data from <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">deadspin</a>. Circle color indicates if the victim was <b id="hit">hit</b> or <b id="killed">killed</b>. Click each point for details.</p>
+        
+        <div id="stats" class="container">
+            <table class="table table-striped table-condensed">
+                <tr>
+                    <td></td>
+                    <td id="category">HIT/UNSPECIFIED</td>
+                    <td id="category">KILLED</td>
+                </tr>
+                <tr>
+                    <td id="category">BLACK</td>
+                    <td id="blackhit"></td>
+                    <td id="blackkilled"></td>
+                </tr>
+                <tr>
+                    <td id="category">WHITE</td>
+                    <td id="whitehit"></td>
+                    <td id="whitekilled"></td>
+                </tr>
+            </table>
+            <div class="text-center">
+                <span id="percent1"></span>
+                <span>of the black victims were killed </span>
+                <span id="percent2"></span>
+                <span>of the white victims were killed</span>
+            </div>
+        </div>
+        
+        <div id="map" class="container-fluid">
             <div id="map"></div>
         </div>
         
