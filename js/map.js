@@ -23,7 +23,8 @@ var layers = {};
 var blackhit = 0,
     blackkilled = 0,
     whitehit = 0,
-    whitekilled = 0;
+    whitekilled = 0,
+    totalkilled = 0;
 // Loops through data and adds the appropriate layers and points
 var customBuild = function() {
     for(var i = 0; i < data.length; i++) {
@@ -35,8 +36,9 @@ var customBuild = function() {
         
         //Create circle
         var circle = L.circle([data[i].lat, data[i].lng], 30100, {
-            color: (data[i]["Hit or Killed?"] === "Killed") ? "#4B5455" : "#396A6F",
-            opacity: 0.5,
+            color: (data[i]["Hit or Killed?"] === "Killed") ? "#9F4464" : "#203E51",
+            opacity: 0.6,
+            fillOpacity: 0.5,
             weight: 0
         }).bindPopup(popup);
         
@@ -53,6 +55,10 @@ var customBuild = function() {
             (data[i]["Hit or Killed?"]  === "Killed") ? blackkilled++ : blackhit++;
         } else if (personRace == "White") {
             (data[i]["Hit or Killed?"]  === "Killed") ? whitekilled++ : whitehit++;
+        };
+        
+        if(data[i]["Hit or Killed?"] === "Killed") {
+            totalkilled++;    
         }
     }
     $.each(layers, function(key, value) {
@@ -62,13 +68,15 @@ var customBuild = function() {
     
     });
     L.control.layers(null,layers).addTo(map);
+    //table
     $("#blackhit").text(blackhit);
     $("#blackkilled").text(blackkilled);
     $("#whitehit").text(whitehit);
     $("#whitekilled").text(whitekilled);
     
-    //percentages
-    
-    $("#percent1").text(Math.ceil(blackkilled / (blackhit + blackkilled) * 100)  + "%");
-    $("#percent2").text(Math.ceil(whitekilled / (whitehit + whitekilled) * 100)  + "%");
+    //stats
+    $("#total").text(data.length);
+    $("#percentkilled").text(Math.ceil(totalkilled / data.length * 100) + "%")
+    $("#blackandkilled").text(Math.ceil(blackkilled / (blackhit + blackkilled) * 100)  + "%");
+    $("#whiteandkilled").text(Math.ceil(whitekilled / (whitehit + whitekilled) * 100)  + "%");
 }

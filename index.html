@@ -31,8 +31,8 @@
             <p class="text-center">This map shows crowdsourced police shooting data from <a target="_blank" href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">deadspin</a>. Circle color indicates if the victim was <b id="hit">HIT</b> or <b id="killed">KILLED</b>. Click each point for details.</p>
         </div>
         
-        
-        <div id="stats" class="container">
+        <!-- cross tabulation -->
+        <div class="container">
             <table class="table table-striped table-condensed">
                 <tr>
                     <td></td>
@@ -50,14 +50,27 @@
                     <td id="whitekilled"></td>
                 </tr>
             </table>
-            <div class="text-center">
-                <span id="percent1"></span>
-                <span>of the black victims were killed </span>
-                <span id="percent2"></span>
-                <span>of the white victims were killed</span>
-            </div>
         </div>
         
+        <!-- numbers and stats -->
+        <div class="container">
+            <table class="table text-center">
+                <tr>
+                    <td>total</td>
+                    <td>killed</td>
+                    <td>black&amp;killed</td>
+                    <td>white&amp;killed</td>
+                </tr>
+                <tr id="stats">
+                    <td id="total"></td>
+                    <td id="percentkilled"></td>
+                    <td id="blackandkilled"></td>
+                    <td id="whiteandkilled"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- bottom map -->
         <div id="map" class="container-fluid">
             <div id="map"></div>
         </div>

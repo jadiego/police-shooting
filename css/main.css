@@ -18,14 +18,10 @@ p {
     padding-bottom: 50px;
 }
 
-b {
-    font-size: 18px;
-}
-
-#map { 
-    height: 760px;
-    padding: 0px;
-    border-top-style: solid;   
+div#map { 
+    height: 670px;
+    padding: 10px;
+    border-top-style: solid;
 }
 
 #category {
@@ -34,14 +30,16 @@ b {
 }
 
 #hit {
-    color: #396A6F;
+    color: #203E51;
+    font-size: 18px !important;
 }
 
 #killed {
-    color: #4B5455;
+    color: #9F4464;
+    font-size: 18px !important;
 }
 
-#percent1, #percent2 {
-    font-size: 90px;
-    font-family: "Wire One";
+table tr#stats {
+    font-family: "Wire One" ;
+    font-size: 50px;
 }
