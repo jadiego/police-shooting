@@ -9,7 +9,7 @@ var data;
 // Function for getting data
 var getData = function() {
     $.ajax({
-        url: "../data/response.json",
+        url: "police-shooting/data/response.json",
         type: "get",
         success: function(dat) {
             data = dat;
