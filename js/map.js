@@ -5,7 +5,7 @@ var drawMap = function() {
     getData();   
 }
 
-
+var data;
 // Function for getting data
 var getData = function() {
     $.ajax({
